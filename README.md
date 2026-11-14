@@ -1,24 +1,23 @@
 # Malambo Hakabwandi — Portfolio
 
-Static portfolio site. One `index.html`, no build step.
+Static site, no build step.
 
-## Push to GitHub
-```bash
-cd portfolio
-git init
-git add .
-git commit -m "Initial portfolio"
-git branch -M main
-git remote add origin https://github.com/<your-username>/<repo-name>.git
-git push -u origin main
+```
+index.html          page structure
+css/style.css       all styling
+js/projects.js      your project list (edit this to add work)
+js/app.js           animations, navigation, WhatsApp form
+images/             logo, grain, photo, favicon (+ images/work for covers)
+scripts/fetch-covers.mjs   optional: download Behance covers into the site
+vercel.json         caching headers
 ```
 
-## Deploy on Vercel
-1. Go to vercel.com/new and import the GitHub repo.
-2. Framework Preset: **Other**. Leave build command and output directory empty.
-3. Click **Deploy**. Every push to `main` redeploys automatically.
+## Update the site
+Edit files on GitHub (pencil icon) or locally, commit to `main`. Vercel redeploys automatically.
 
 ## Add a project
-Open `index.html`, find the `const P=[` list and copy a line. `u` is the Behance link after `/gallery/`.
-For the cover, use `i` (Behance image file name) or `l` (a file you put in the `images` folder, e.g. `images/my-project.jpg`).
-The first 9 projects show on the landing page; all of them show on the Work page.
+In `js/projects.js` copy a line. `u` is the Behance link after `/gallery/`. Cover: `i` = Behance image file name, or `l` = a file in `images/`.
+The first 9 show on the landing page.
+
+## Faster covers (recommended)
+On your computer with Node 18+, from this folder: `node scripts/fetch-covers.mjs`, then commit `images/work` and `js/projects.js`.
